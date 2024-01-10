@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -191,39 +192,39 @@ namespace Dotskin_Triangle
                     graphics.DrawLine(pen, (float)xC, (float)yC, (float)xA, (float)yA);
 
 
+                    showFullInfo(pointA, pointB, pointC);
+                 ////создаем обьект тругольник для вычислений
+                 //   Triangle_ triangle = new Triangle_(pointA, pointB, pointC);
 
-                 //создаем обьект тругольник для вычислений
-                    Triangle_ triangle = new Triangle_(pointA, pointB, pointC);
+                 //   //добавляем картинку в пиктчур бокс в зависимости от типа
+                 //   if (triangle.IsEquilateral())
+                 //   { pb.Image = new Bitmap("../../../Dotskin_Triangle/fullequal.png"); }
 
-                    //добавляем картинку в пиктчур бокс в зависимости от типа
-                    if (triangle.IsEquilateral())
-                    { pb.Image = new Bitmap("../../../Dotskin_Triangle/fullequal.png"); }
+                 //   else if (triangle.IsIsosceles())
+                 //   { pb.Image = new Bitmap("../../../Dotskin_Triangle/equal.png"); }
 
-                    else if (triangle.IsIsosceles())
-                    { pb.Image = new Bitmap("../../../Dotskin_Triangle/equal.png"); }
-
-                    else if (triangle.IsScalene())
-                    {pb.Image = new Bitmap("../../../Dotskin_Triangle/noeq.jpg");}
+                 //   else if (triangle.IsScalene())
+                 //   {pb.Image = new Bitmap("../../../Dotskin_Triangle/noeq.jpg");}
 
 
-                        //стороны
-                    kolmnurkInf.Items.Add($"A= {pointA}");
-                    kolmnurkInf.Items.Add($"B= {pointB}");
-                    kolmnurkInf.Items.Add($"C= {pointC}");
-                       //существует ли 
-                    kolmnurkInf.Items.Add($"Kas on? {triangle.ExistTriangle}");
-                    //периметр
-                    kolmnurkInf.Items.Add($"Perimeter {triangle.Perimeter()}");
-                    //площадь
-                    kolmnurkInf.Items.Add($"Pindala {triangle.Surface()}");
-                    //высота
-                    kolmnurkInf.Items.Add($"Kõrgus {triangle.OutputH()}");
-                    //равносторонний ли
-                    kolmnurkInf.Items.Add($"Võrdkülne? {triangle.IsEquilateral()}");
-                    //равнобедренный ли
-                    kolmnurkInf.Items.Add($"Võrdhaarne? {triangle.IsIsosceles()}");
-                    //разносторонний
-                    kolmnurkInf.Items.Add($"Erikülne? {triangle.IsScalene()}");
+                 //       //стороны
+                 //   kolmnurkInf.Items.Add($"A= {pointA}");
+                 //   kolmnurkInf.Items.Add($"B= {pointB}");
+                 //   kolmnurkInf.Items.Add($"C= {pointC}");
+                 //      //существует ли 
+                 //   kolmnurkInf.Items.Add($"Kas on? {triangle.ExistTriangle}");
+                 //   //периметр
+                 //   kolmnurkInf.Items.Add($"Perimeter {triangle.Perimeter()}");
+                 //   //площадь
+                 //   kolmnurkInf.Items.Add($"Pindala {triangle.Surface()}");
+                 //   //высота
+                 //   kolmnurkInf.Items.Add($"Kõrgus {triangle.OutputH()}");
+                 //   //равносторонний ли
+                 //   kolmnurkInf.Items.Add($"Võrdkülne? {triangle.IsEquilateral()}");
+                 //   //равнобедренный ли
+                 //   kolmnurkInf.Items.Add($"Võrdhaarne? {triangle.IsIsosceles()}");
+                 //   //разносторонний
+                 //   kolmnurkInf.Items.Add($"Erikülne? {triangle.IsScalene()}");
 
                 }
                 else
@@ -233,6 +234,41 @@ namespace Dotskin_Triangle
             {
                 MessageBox.Show("Tühjed väljad!");//если пустые поля
             }
+        }
+        private void showFullInfo(double pointA, double pointB, double pointC)
+        {
+            //создаем обьект тругольник для вычислений
+            Triangle_ triangle = new Triangle_(pointA, pointB, pointC);
+
+            //добавляем картинку в пиктчур бокс в зависимости от типа
+            if (triangle.IsEquilateral())
+            { pb.Image = new Bitmap("../../../Dotskin_Triangle/fullequal.png"); }
+
+            else if (triangle.IsIsosceles())
+            { pb.Image = new Bitmap("../../../Dotskin_Triangle/equal.png"); }
+
+            else if (triangle.IsScalene())
+            { pb.Image = new Bitmap("../../../Dotskin_Triangle/noeq.jpg"); }
+
+
+            //стороны
+            kolmnurkInf.Items.Add($"A= {pointA}");
+            kolmnurkInf.Items.Add($"B= {pointB}");
+            kolmnurkInf.Items.Add($"C= {pointC}");
+            //существует ли 
+            kolmnurkInf.Items.Add($"Kas on? {triangle.ExistTriangle}");
+            //периметр
+            kolmnurkInf.Items.Add($"Perimeter {triangle.Perimeter()}");
+            //площадь
+            kolmnurkInf.Items.Add($"Pindala {triangle.Surface()}");
+            //высота
+            kolmnurkInf.Items.Add($"Kõrgus {triangle.OutputH()}");
+            //равносторонний ли
+            kolmnurkInf.Items.Add($"Võrdkülne? {triangle.IsEquilateral()}");
+            //равнобедренный ли
+            kolmnurkInf.Items.Add($"Võrdhaarne? {triangle.IsIsosceles()}");
+            //разносторонний
+            kolmnurkInf.Items.Add($"Erikülne? {triangle.IsScalene()}");
         }
 
 
