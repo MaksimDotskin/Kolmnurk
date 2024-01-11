@@ -4,14 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dotskin_Triangle
 {
-    public partial class Triangle : Form
+    public partial class Triangle2 : Form
     {
         private TextBox textBoxA; //обьявояем элементы
         private TextBox textBoxB;
@@ -24,14 +23,13 @@ namespace Dotskin_Triangle
         private Label infoTupp;
         private ListBox kolmnurkInf;
         private Button btnClear;
-        private Button btnShow;
 
 
 
         PictureBox pb;
-        public Triangle()//конструктор
+        public Triangle2()//конструктор
         {
-            this.Text = "Kolmnurk";
+            this.Text = "Kolmnurk2";
 
             InitializeComponent();
             createAll();
@@ -42,44 +40,44 @@ namespace Dotskin_Triangle
 
 
 
-            this.BackColor = Color.White;
+            this.BackColor = Color.Pink;
 
             textBoxA = new TextBox();       //поле ввода размера 
-            textBoxA.Location = new Point(220, 310-50);
+            textBoxA.Location = new Point(220, 310 - 50);
             textBoxA.Size = new Size(150, 25);
-            textBoxA.BackColor = Color.LightGray; this.ForeColor = Color.DarkGray;
-            textBoxA.ForeColor = Color.Black;
+            textBoxA.BackColor = Color.Pink;
+            textBoxA.ForeColor = Color.Blue;
 
-            infoA=new Label(); //подпист
-            infoA.Location = new Point(220,310-63);
-            infoA.ForeColor = Color.Black;
-            infoA.Text = "A pool";
+            infoA = new Label(); //подпист
+            infoA.Location = new Point(220, 310 - 63);
+            infoA.ForeColor = Color.Blue;
+            infoA.Text = "A nurk";
 
 
             textBoxB = new TextBox();
-           
-            textBoxB.Location = new Point(220, 340-50);
+
+            textBoxB.Location = new Point(220, 340 - 50);
             textBoxB.Size = new Size(150, 25);
-            textBoxB.BackColor = Color.LightGray; this.ForeColor = Color.DarkGray;
+            textBoxB.BackColor = Color.Pink;
             textBoxB.ForeColor = Color.Black;
 
             infoB = new Label();
             infoB.Location = new Point(220, 340 - 63);
-            infoB.ForeColor = Color.Black;
-            infoB.Text = "B pool";
+            infoB.ForeColor = Color.Blue;
+            infoB.Text = "B nurk";
 
 
             textBoxC = new TextBox();
-          
+
             textBoxC.Location = new Point(220, 370 - 50);
             textBoxC.Size = new Size(150, 25);
-            textBoxC.BackColor = Color.LightGray; this.ForeColor = Color.DarkGray;
-            textBoxC.ForeColor = Color.Black;
+            textBoxC.BackColor = Color.Pink;
+            textBoxC.ForeColor = Color.Blue;
 
             infoC = new Label();
             infoC.Location = new Point(220, 370 - 63);
-            infoC.ForeColor = Color.Black;
-            infoC.Text = "C pool";
+            infoC.ForeColor = Color.Blue;
+            infoC.Text = "a pool";
 
 
 
@@ -87,21 +85,10 @@ namespace Dotskin_Triangle
             btnDraw.Text = "Käivitada";
             btnDraw.Width = 100;
             btnDraw.Height = 100;
-            btnDraw.Location = new Point(610,40);
+            btnDraw.Location = new Point(610, 40);
             btnDraw.Click += btnDraw_Click;
-            btnDraw.MouseDoubleClick += btnDraw_DoubleClick;
-            btnDraw.BackColor = Color.Green;
-            btnDraw.ForeColor = Color.Black;
-
-            btnShow = new Button(); //ЗАПУСК 2
-            btnShow.Text = "Kolmnurk 2";
-            btnShow.Width = 100;
-       
-            btnShow.Location = new Point(610, 200);
-            btnShow.Click += btnDraw_DoubleClick;
-          
-            btnShow.BackColor = Color.Yellow;
-            btnShow.ForeColor = Color.Black;
+            btnDraw.BackColor = Color.Purple;
+            btnDraw.ForeColor = Color.LightBlue;
 
             //btnDrawDef = new Button();
             //btnDrawDef.Text = "Määrata vaikesuurus";
@@ -115,24 +102,24 @@ namespace Dotskin_Triangle
             btnClear = new Button(); //пнопка очистки
             btnClear.Text = "Emalda";
             btnClear.Width = 100;
-            btnClear.Location = new Point(610,150);
+            btnClear.Location = new Point(610, 150);
             btnClear.Click += btnClear_Click;
             btnClear.BackColor = Color.Red;
-            btnClear.ForeColor = Color.Black;
+            btnClear.ForeColor = Color.Blue;
 
             kolmnurkInf = new ListBox(); //листбокс для всей информации 
             kolmnurkInf.Location = new Point(10, 10);
             kolmnurkInf.Size = new Size(300, 200);
-            kolmnurkInf.BackColor = Color.LightGray; this.ForeColor = Color.DarkGray;
-            kolmnurkInf.ForeColor = Color.Black;
+            kolmnurkInf.BackColor = Color.Pink;
+            kolmnurkInf.ForeColor = Color.Blue;
 
             infoTupp = new Label(); //просто подпись что это
             infoTupp.Location = new Point(10, kolmnurkInf.Bottom + 25);
-            infoTupp.ForeColor = Color.Black;
+            infoTupp.ForeColor = Color.Blue;
             infoTupp.Text = "Kolmnurke tüpp";
 
             pb = new PictureBox(); //пб для картинки типа треугольника
-            pb.Location = new Point(10, kolmnurkInf.Bottom + 40); 
+            pb.Location = new Point(10, kolmnurkInf.Bottom + 40);
             pb.Size = new Size(200, 140);
             pb.SizeMode = PictureBoxSizeMode.Zoom;
             pb.BorderStyle = BorderStyle.Fixed3D;
@@ -146,9 +133,8 @@ namespace Dotskin_Triangle
             Controls.Add(btnDraw);
             Controls.Add(infoA);
             Controls.Add(infoB);
-            Controls.Add(infoC  );
+            Controls.Add(infoC);
             Controls.Add(infoTupp);
-            Controls.Add(btnShow);
             //Controls.Add(btnDrawDef);
         }
 
@@ -156,24 +142,19 @@ namespace Dotskin_Triangle
         {
             Invalidate();
             kolmnurkInf.Items.Clear();
-            pb.Image = null; 
-            textBoxA.Text= null;
-            textBoxB.Text= null;
-            textBoxC.Text= null;
+            pb.Image = null;
+            textBoxA.Text = null;
+            textBoxB.Text = null;
+            textBoxC.Text = null;
         }
         //private void btnDrawDef_Click(object sender, EventArgs e)
         //{
         //    isDefault = true;
 
         //}
-        private void btnDraw_DoubleClick(object sender, EventArgs e)
-        {
-            Triangle2 triangle2 = new Triangle2();
-            triangle2.Show();
-        }
-            private void btnDraw_Click(object sender, EventArgs e)
-        {
 
+        private void btnDraw_Click(object sender, EventArgs e)
+        {
             // Получаем значения из полей
             double pointA, pointB, pointC;
             if (double.TryParse(textBoxA.Text, out pointA) && double.TryParse(textBoxB.Text, out pointB) && double.TryParse(textBoxC.Text, out pointC))
@@ -185,13 +166,34 @@ namespace Dotskin_Triangle
                     //очищаем информацию
                     kolmnurkInf.Items.Clear();
 
-                    
+                    double centerX = 500;
+                    double centerY = 150;
+
+                    double angleA = Math.PI / 2;
+                    double angleB = angleA + Math.Acos((pointA * pointA + pointC * pointC - pointB * pointB) / (2 * pointA * pointC));
+                    double angleC = 3 * Math.PI / 2;
+
+                    double xA = centerX + pointA * Math.Cos(angleA);
+                    double yA = centerY - pointA * Math.Sin(angleA);
+
+                    double xB = centerX + pointB * Math.Cos(angleB);
+                    double yB = centerY - pointB * Math.Sin(angleB);
+
+                    double xC = centerX + pointC * Math.Cos(angleC);
+                    double yC = centerY - pointC * Math.Sin(angleC);
+
+                    // Рисуем треугольник на форме
+                    Graphics graphics = CreateGraphics();
+                    Pen pen = new Pen(Color.Black);
+                    graphics.DrawLine(pen, (float)xA, (float)yA, (float)xB, (float)yB);
+                    graphics.DrawLine(pen, (float)xB, (float)yB, (float)xC, (float)yC);
+                    graphics.DrawLine(pen, (float)xC, (float)yC, (float)xA, (float)yA);
 
 
                     showFullInfo(pointA, pointB, pointC); //вызываем функцию отображдения инфы передавая аргументы точек
                 }
                 else
-                {MessageBox.Show("Võimatu kolmnurk!");} //если треугольник невозможен
+                { MessageBox.Show("Võimatu kolmnurk!"); } //если треугольник невозможен
             }
             else
             {
@@ -201,7 +203,7 @@ namespace Dotskin_Triangle
         private void showFullInfo(double pointA, double pointB, double pointC)
         {
             //создаем обьект тругольник для вычислений
-            Triangle_ triangle = new Triangle_(pointA, pointB, pointC, true);
+            Triangle_ triangle = new Triangle_(pointA, pointB, pointC);
 
             //добавляем картинку в пиктчур бокс в зависимости от типа
             if (triangle.IsEquilateral())
@@ -215,9 +217,12 @@ namespace Dotskin_Triangle
 
 
             //стороны
-            kolmnurkInf.Items.Add($"A= {pointA}");
-            kolmnurkInf.Items.Add($"B= {pointB}");
-            kolmnurkInf.Items.Add($"C= {pointC}");
+            kolmnurkInf.Items.Add($"A nurk= {pointA}");
+            kolmnurkInf.Items.Add($"B nurk= {pointB}");
+            kolmnurkInf.Items.Add($"C nurk= {triangle.degC}");
+            kolmnurkInf.Items.Add($"a= {pointC}");
+            kolmnurkInf.Items.Add($"b= {triangle.b}");
+            kolmnurkInf.Items.Add($"c= {triangle.c}");
             //существует ли 
             kolmnurkInf.Items.Add($"Kas on? {triangle.ExistTriangle}");
             //периметр

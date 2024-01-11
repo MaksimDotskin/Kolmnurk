@@ -13,23 +13,42 @@ namespace Dotskin_Triangle
         public double a;//стороны и высота
         public double b;
         public double c;
-        
+        public double degA;
+        public double degB;
+        public double degC;
+        public double degA_rad;
+        public double degB_rad;
 
-        public Triangle_(double A, double B, double C)//конструктор
-        {
-            a = A;
-            b = B;
-            c = C;
-
-        }
         public Triangle_()
         {
             a = 50;//конструктор по дефолту без аршументов
             b = 50;
             c = 50;
+        }
+        public Triangle_(double DEGA,double DEGB,double A)
+        {
+            
+            a = A; 
+            degA = DEGA; 
+            degB= DEGB;
+            degC = 180 - (degA + degB); 
+            degA_rad = degA * Math.PI / 180.0;
+            degB_rad = degB * Math.PI / 180.0;
+
+            b = a * Math.Sin(degB_rad) / Math.Sin(degA_rad);
+            c = a * Math.Sin((degC) * Math.PI / 180.0) / Math.Sin(degA_rad);
+        }
+        public Triangle_(double A, double B, double C,bool T)
+        {
+            a = A;
+            b = B;
+            c= C;
 
         }
-        public bool IsScalene() //проверка разносторонни ли
+
+
+
+            public bool IsScalene() //проверка разносторонни ли
         { return a != b && a != c && b != c; } //если не одна сторона не равна не одной
         public bool IsEquilateral() //проврека равнобедренный ли
         { return a == b && a == c;} //строная провера совпадают ли обе стороны

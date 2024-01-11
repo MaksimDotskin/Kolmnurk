@@ -9,3 +9,4 @@ C:\Users\opilane\Source\Repos\Dotskin_Triangle\obj\Debug\Dotskin_Triangle.csproj
 C:\Users\opilane\Source\Repos\Dotskin_Triangle\obj\Debug\Dotskin_Triangle.csproj.CoreCompileInputs.cache
 C:\Users\opilane\Source\Repos\Dotskin_Triangle\obj\Debug\Dotskin_Triangle.exe
 C:\Users\opilane\Source\Repos\Dotskin_Triangle\obj\Debug\Dotskin_Triangle.pdb
+C:\Users\opilane\Source\Repos\Dotskin_Triangle\obj\Debug\Dotskin_Triangle.Triangle2.resources

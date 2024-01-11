@@ -17,6 +17,8 @@ namespace Dotskin_Triangle
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Triangle());
+            Triangle_ triangle = new Triangle_(60, 60, 10);
+            Console.WriteLine(triangle.outputA(),triangle.outputB(), triangle.outputC());
         }
     }
 }
